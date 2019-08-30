@@ -46,8 +46,25 @@ Order.prototype.otherPrice = function(other) {
 
 Order.prototype.totalPrice = function() {
     this.price = this.sizePrice() + this.proteinPrice() + this.veggiePrice() + this.otherToppings();
+    console.log('order price:', this.price);
 }
 
 //User Interface logic
+const createOrder = () => {
+    const size = $("option:selected").val();
+    const proteinTopping = $("input[name=protein]:checked").val();
+    const veggieTopping = $("input[name=veggies]:checked").val();
+    const otherTopping = $("input[name=others]:checked").val();
+    console.log('size:', size);
+    console.log('protein:', proteinTopping);
+    console.log('veggie:', veggieTopping);
+    console.log('others:', otherTopping);
+}
 
+$(document).ready(function(){
+    $("form").submit(function(event){
+        event.preventDefault();
+        createOrder();
+    });
+});
 
