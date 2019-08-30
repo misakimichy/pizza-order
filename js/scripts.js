@@ -38,11 +38,10 @@ Order.prototype.toppingPrice = function() {
 // Calc pizza size + toppings
 Order.prototype.totalPrice = function() {
     this.price = this.sizePrice() + this.toppingPrice();
-    console.log("size Price:", this.sizePrice());
-    console.log('topping total price:', this.price);
+    return this.price;
 }
 
-//User Interface logic
+// User Interface logic
 const createOrder = () => {
     const size = $("option:selected").val();
 
@@ -60,8 +59,7 @@ const createOrder = () => {
         others.push($(this).val());
     });
     const newOrder = new Order(size, proteins, veggies, others);
-    newOrder.totalPrice();
-    // ToDo: invoke clear form function
+    return newOrder;
 }
 
 // clear form
@@ -73,8 +71,10 @@ const clearForm = () => {
 $(document).ready(function(){
     $("form").submit(function(event){
         event.preventDefault();
-        createOrder();
+        const thisOrder = createOrder();
         clearForm();
+        $("#show").text(thisOrder.totalPrice());
+        $("#cart").show();
     });
 });
 
