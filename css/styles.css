@@ -26,3 +26,18 @@ label {
 #cart {
     display: none;
 }
+
+.size,
+.proteins,
+.veggies,
+.others {
+    text-transform: capitalize;
+}
+
+li {
+    list-style: none;
+}
+
+#total {
+    text-align: center;
+}

@@ -72,7 +72,12 @@ $(document).ready(function(){
     $("form").submit(function(event){
         event.preventDefault();
         const thisOrder = createOrder();
+        console.log(thisOrder);
         clearForm();
+        $(".size").text(thisOrder.size);
+        $(".protein").text(thisOrder.proteins);
+        $(".veggies").text(thisOrder.veggies);
+        $(".others").text(thisOrder.others);
         $("#show").text(thisOrder.totalPrice());
         $("#cart").show();
     });

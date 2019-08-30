@@ -72,10 +72,10 @@
                     <div class="form-group others">
                         <p>Pizza Toppings - Others - $1.50</p>
                         <label for="extra-cheese">
-                            <input id="extra-cheese" type="checkbox" name="others" value="extra-cheese">Extra Cheese <br>
+                            <input id="extra-cheese" type="checkbox" name="others" value="extra cheese">Extra Cheese <br>
                         </label>
                         <label for="chili-pepper">
-                                <input id="chili-pepper" type="checkbox" name="others" value="chili-pepper">Chili Pepper <br>
+                                <input id="chili-pepper" type="checkbox" name="others" value="chili flakes">Chili Pepper <br>
                         </label>
                         <label for="jalapeno">
                             <input id="jalapeno" type="checkbox" name="others" value="jalapeno">Jalapeño <br>
@@ -88,10 +88,16 @@
             <div class="col-md-4 well" id="cart">
                 <h2>Your cart:</h2>
                 <p>Pizza Size: <span class="size"></span></p>
-                <p>Your toppings: <span class=></span></p>
+                <p>Your toppings:
+                    <ul>
+                        <li>Protein: <span class="protein"></span></li>
+                        <li>Veggies: <span class="veggies"></span></li>
+                        <li>Others: <span class="others"></span></li>
+                    </ul>
+                </p>
                 <!-- add order details -->
-                <h3>Your total price will be</h3>
-                <p>$<span id="show"></span></p>
+                <h3>Your total price will be: </h3>
+                <p id="total">$<span id="show"></span></p>
                 <button type="submit" class="btn btn-warning">Place Order🛎</button>
             </div>
             <div class="col-md-1"></div>
