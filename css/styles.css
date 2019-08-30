@@ -10,6 +10,14 @@ h1, h2, h3 {
     margin-top: 20px;
 }
 
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    margin-right: 10px;
+}
+
 .btn {
     display: block;
     margin: 0 auto;
