@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/scripts.js"></script>
@@ -47,6 +47,12 @@
                         <label for="squid">
                             <input id="squid" type="checkbox" name="proteins" value="squid">Squid <br>
                         </label>
+                        <label for="crub">
+                            <input id="crub" type="checkbox" name="proteins" value="crub meet">Crub Meet <br>
+                        </label>
+                        <label for="shrimp">
+                            <input id="shrimp" type="checkbox" name="proteins" value="shrimp">Shrimp<br>
+                        </label>
                         <label for="anchovy">
                             <input id="anchovy" type="checkbox" name="proteins" value="anchovy">Anchovy <br>
                         </label>
@@ -68,11 +74,26 @@
                         <label for="artichokes">
                             <input id="artichokes" type="checkbox" name="veggies" value="artichokes">Artichokes <br>
                         </label>
+                        <label for="onions">
+                            <input id="onions" type="checkbox" name="veggies" value="onions">Onions <br>
+                        </label>
+                        <label for="tomato">
+                            <input id="tomato" type="checkbox" name="veggies" value="tomato">Tomato <br>
+                        </label>
+                        <label for="eggplant">
+                            <input id="eggplant" type="checkbox" name="veggies" value="eggplant">Eggplant <br>
+                        </label>
                     </div>
                     <div class="form-group others">
                         <p>Pizza Toppings - Others - $1.50</p>
                         <label for="extra-cheese">
                             <input id="extra-cheese" type="checkbox" name="others" value="extra cheese">Extra Cheese <br>
+                        </label>
+                        <label for="mozzarella">
+                            <input id="mozzarella" type="checkbox" name="others" value="mozzarella">Mozzarella <br>
+                        </label>
+                        <label for="buffalo-mozzarella">
+                            <input id="buffalo-mozzarella" type="checkbox" name="others" value="buffalo mozzarella">Buffalo Mozzarella <br>
                         </label>
                         <label for="chili-pepper">
                                 <input id="chili-pepper" type="checkbox" name="others" value="chili flakes">Chili Pepper <br>
@@ -80,26 +101,20 @@
                         <label for="jalapeno">
                             <input id="jalapeno" type="checkbox" name="others" value="jalapeno">Jalapeño <br>
                         </label>
+                        <label for="olives">
+                            <input id="olives" type="checkbox" name="others" value="black olives">Black Olives<br>
+                        </label>
                     </div>
                     <button type="submit" class="btn btn-info">Add Cart 🛒</button>
                 </form>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-4 well" id="cart">
-                <h2>Your Cart</h2>
-                <p>Pizza Size: <span class="size"></span></p>
-                <ul>
-                    <li>Protein: <span id="proteins-topping"></span></li>
-                    <li>Veggies: <span id="veggies-topping"></span></li>
-                    <li>Others: <span id="others-topping"></span></li>
-                </ul>
-                <!-- add order details -->
-                <h3>Your total price will be: </h3>
-                <p id="total">$<span id="show"></span></p>
                 <div class="buttons">
-                    <button type="submit" class="btn btn-info">Add More</button>
-                    <button type="submit" class="btn btn-warning">Place Order 🛎</button>
+                    <button type="submit" class="btn btn-warning" id="place-order">Place Order 🛎</button>
                 </div>
+                <h2>Your Cart</h2>
+                <ul id="list"></ul>
             </div>
             <div class="col-md-1"></div>
         </div>

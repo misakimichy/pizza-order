@@ -1,5 +1,5 @@
 //Business logic
-// order constructor
+// Pizza order constructor
 function Order (size, proteins, veggies, others) {
     this.size = size,
     this.proteins = proteins;
@@ -41,6 +41,15 @@ Order.prototype.totalPrice = function() {
     return this.price;
 }
 
+// Customer info constructor
+function Customer (name, address, phone, payment) {
+    this.name = name,
+    this.address = address,
+    this.phone = phone,
+    this.payment = payment
+}
+
+
 // User Interface logic
 const createOrder = () => {
     const size = $("option:selected").val();
@@ -62,6 +71,16 @@ const createOrder = () => {
     return newOrder;
 }
 
+// Show cart
+const showCart = (thisOrder) => {
+    $("#list").append(`<li>Size: <span class="size">${thisOrder.size}</span></li>`);
+    $("#list").append(`<li>Protein: <span id="proteins-topping">${thisOrder.proteins}</span></li>`);
+    $("#list").append(`<li>Veggies: <span id="veggies-topping">${thisOrder.veggies}</span></li>`);
+    $("#list").append(`<li>Others: <span id="others-topping">${thisOrder.others}</span></li>`);
+    $("#list").append(`<p id="total">$<span id="show">${thisOrder.totalPrice()}</span></p>`);
+    $("#cart").show();
+}
+
 // clear form
 const clearForm = () => {
     $("option:selected").removeAttr("selected");
@@ -72,14 +91,7 @@ $(document).ready(function(){
     $("form").submit(function(event){
         event.preventDefault();
         const thisOrder = createOrder();
-        console.log(thisOrder);
+        showCart(thisOrder);
         clearForm();
-        $(".size").text(thisOrder.size);
-        $(".protein").text(thisOrder.proteins);
-        $(".veggies").text(thisOrder.veggies);
-        $(".others").text(thisOrder.others);
-        $("#show").text(thisOrder.totalPrice());
-        $("#cart").show();
     });
 });
-

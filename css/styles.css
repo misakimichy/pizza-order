@@ -40,13 +40,12 @@ label {
     color: #333;
 }
 
-#cart > p,
 #cart > ul {
     text-align: center;
 }
 
 #cart > p {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .size,
@@ -62,6 +61,8 @@ label {
 
 li {
     list-style: none;
+    text-align: c;
+    display: block;
 }
 
 #total {
