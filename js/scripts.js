@@ -13,18 +13,17 @@ Order.prototype.sizePrice = function() {
     if(this.size === "small"){
         return 8;
     } else if (this.size === "medium") {
-        return 10;
+        return 9;
     } else {
-        return 11;
+        return 10;
     }
 }
 
 // Update this.price depends on toppings
 Order.prototype.toppingPrice = function() {
     let cost = 0;
-    console.log('proteins in toppingPrice', this.proteins);
     this.proteins.forEach(() => {
-        cost += 3;
+        cost += 2.5;
     });
     this.veggies.forEach(() => {
         cost += 2;
@@ -36,6 +35,7 @@ Order.prototype.toppingPrice = function() {
     return cost;
 }
 
+// Calc pizza size + toppings
 Order.prototype.totalPrice = function() {
     this.price = this.sizePrice() + this.toppingPrice();
     console.log("size Price:", this.sizePrice());
@@ -44,36 +44,37 @@ Order.prototype.totalPrice = function() {
 
 //User Interface logic
 const createOrder = () => {
-    // size, three toppings]
     const size = $("option:selected").val();
+
     // make arrays of checked items
     let proteins = [];
     $(".proteins input[name=proteins]:checked").each(function() {
         proteins.push($(this).val());
     });
-    console.log('proteins', proteins);
     let veggies = [];
     $(".veggies input[name=veggies]:checked").each(function() {
         veggies.push($(this).val());
     });
-    console.log('veggies', veggies);
     let others = [];
     $(".others input[name=others]:checked").each(function() {
         others.push($(this).val());
     });
-    console.log('others', others);
     const newOrder = new Order(size, proteins, veggies, others);
-    console.log(newOrder);
     newOrder.totalPrice();
     // ToDo: invoke clear form function
+}
 
+// clear form
+const clearForm = () => {
+    $("option:selected").removeAttr("selected");
+    $("input:checked").prop('checked', false);
 }
 
 $(document).ready(function(){
     $("form").submit(function(event){
         event.preventDefault();
         createOrder();
-
+        clearForm();
     });
 });
 
