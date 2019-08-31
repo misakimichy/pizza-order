@@ -11,11 +11,11 @@ function Order (size, proteins, veggies, others) {
 // Calc base pizza price depends on the pizza size
 Order.prototype.sizePrice = function() {
     if(this.size === "small"){
-        return 8;
+        return 7;
     } else if (this.size === "medium") {
-        return 9;
+        return 8;
     } else {
-        return 10;
+        return 9;
     }
 }
 
@@ -23,32 +23,22 @@ Order.prototype.sizePrice = function() {
 Order.prototype.toppingPrice = function() {
     let cost = 0;
     this.proteins.forEach(() => {
-        cost += 2.5;
+        cost += 2.50;
     });
     this.veggies.forEach(() => {
         cost += 2;
     });
     this.others.forEach(() => {
-        cost += 1.5;
+        cost += 1.50;
     });
-    console.log("topping total:", cost);
     return cost;
 }
 
 // Calc pizza size + toppings
-Order.prototype.totalPrice = function() {
+Order.prototype.pizzaPrice = function() {
     this.price = this.sizePrice() + this.toppingPrice();
     return this.price;
 }
-
-// Customer info constructor
-function Customer (name, address, phone, payment) {
-    this.name = name,
-    this.address = address,
-    this.phone = phone,
-    this.payment = payment
-}
-
 
 // User Interface logic
 const createOrder = () => {
@@ -73,17 +63,19 @@ const createOrder = () => {
 
 // Show cart
 const showCart = (thisOrder) => {
+    $("#cart").append(`<ul id="list"></ul>`);
     $("#list").append(`<li>Size: <span class="size">${thisOrder.size}</span></li>`);
     $("#list").append(`<li>Protein: <span id="proteins-topping">${thisOrder.proteins}</span></li>`);
     $("#list").append(`<li>Veggies: <span id="veggies-topping">${thisOrder.veggies}</span></li>`);
     $("#list").append(`<li>Others: <span id="others-topping">${thisOrder.others}</span></li>`);
-    $("#list").append(`<p id="total">$<span id="show">${thisOrder.totalPrice()}</span></p>`);
+    $("#list").append(`<li>$<span id="show">${thisOrder.pizzaPrice()}</span></li>`);
     $("#cart").show();
 }
 
 // clear form
+// Todo: fix dropdown list reset
 const clearForm = () => {
-    $("option:selected").removeAttr("selected");
+    $("select option").find('option:first').attr('selected', 'selected');
     $("input:checked").prop('checked', false);
 }
 
@@ -92,6 +84,10 @@ $(document).ready(function(){
         event.preventDefault();
         const thisOrder = createOrder();
         showCart(thisOrder);
-        clearForm();
+        $("button#order-more").click(function(event){
+            event.preventDefault();
+            clearForm();
+        })
     });
+
 });

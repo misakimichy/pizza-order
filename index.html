@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <p>Pizza Size</p>
                         <select name="size" id="size">
-                            <option selected disabled>Select a size</option>
+                            <option value='' id="default" selected disabled>Select a size</option>
                             <option value="small">Small</option>
                             <option value="medium">Medium</option>
                             <option value="large">Large</option>
@@ -112,9 +112,9 @@
             <div class="col-md-4 well" id="cart">
                 <div class="buttons">
                     <button type="submit" class="btn btn-warning" id="place-order">Place Order 🛎</button>
+                    <button type="submit" class="btn btn-warning" id="order-more">Order More</button>
                 </div>
                 <h2>Your Cart</h2>
-                <ul id="list"></ul>
             </div>
             <div class="col-md-1"></div>
         </div>
