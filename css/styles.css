@@ -2,6 +2,7 @@ body {
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #333;
+    background-image: url("../img/pizza.jpg");
 }
 
 h1, h2, h3 {
@@ -42,6 +43,7 @@ label {
 
 #cart > ul {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 #cart > p {
