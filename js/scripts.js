@@ -63,9 +63,8 @@ const showCart = (thisOrder) => {
 }
 
 // clear form
-// Todo: fix dropdown list reset
 const clearForm = () => {
-    $("select option").find('option:first').attr('selected', 'selected');
+    $("select#size").prop('selectedIndex', 0);
     $("input:checked").prop('checked', false);
 }
 
