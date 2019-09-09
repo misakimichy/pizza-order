@@ -1,33 +1,35 @@
 //Business logic
 // Pizza order constructor
-function Order (size, proteins, veggies, others) {
-    this.size = size,
-    this.proteins = proteins;
-    this.veggies = veggies;
-    this.others = others;
-    this.price = 0
-}
-
-// Calc base pizza price depends on the pizza size
-Order.prototype.sizePrice = function() {
-    if(this.size === "small"){
-        return 7;
-    } else if (this.size === "medium") {
-        return 8;
-    } else {
-        return 9;
+class Order {
+    constructor(size, proteins, veggies, others) {
+        this.size = size,
+        this.proteins = proteins;
+        this.veggies = veggies;
+        this.others = others;
+        this.price = 0;
     }
-}
 
-// Update this.price depends on toppings
-Order.prototype.toppingPrice = function() {
-    return (this.proteins.length * 2.50) + (this.veggies.length * 2) + (this.others.length * 1.5);
-}
+    // Calc base pizza price depends on the pizza size
+    sizePrice() {
+        if(this.size === "small"){
+            return 7;
+        } else if (this.size === "medium") {
+            return 8;
+        } else {
+            return 9;
+        }
+    }
 
-// Calc pizza size + toppings
-Order.prototype.pizzaPrice = function() {
-    this.price = this.sizePrice() + this.toppingPrice();
-    return this.price;
+    // Update this.price depends on toppings
+    toppingPrice() {
+        return (this.proteins.length * 2.50) + (this.veggies.length * 2) + (this.others.length * 1.5);
+    }
+    
+    // Calc pizza size + toppings
+    pizzaPrice() {
+        this.price = this.sizePrice() + this.toppingPrice();
+        return this.price;
+    }
 }
 
 // User Interface logic
@@ -76,6 +78,6 @@ $(document).ready(function(){
         $("button#order-more").click(function(event){
             event.preventDefault();
             clearForm();
-        })
+        });
     });
 });
