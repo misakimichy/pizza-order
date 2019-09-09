@@ -21,17 +21,7 @@ Order.prototype.sizePrice = function() {
 
 // Update this.price depends on toppings
 Order.prototype.toppingPrice = function() {
-    let cost = 0;
-    this.proteins.forEach(() => {
-        cost += 2.50;
-    });
-    this.veggies.forEach(() => {
-        cost += 2;
-    });
-    this.others.forEach(() => {
-        cost += 1.50;
-    });
-    return cost;
+    return (this.proteins.length * 2.50) + (this.veggies.length * 2) + (this.others.length * 1.5);
 }
 
 // Calc pizza size + toppings
@@ -89,5 +79,4 @@ $(document).ready(function(){
             clearForm();
         })
     });
-
 });
