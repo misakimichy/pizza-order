@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/bootstrap.js"></script>
     <script src="js/scripts.js"></script>
     <title>Pizza Order</title>
 </head>
@@ -112,12 +113,41 @@
             <div class="col-md-4 well" id="cart">
                 <div class="buttons">
                     <button type="submit" class="btn btn-warning" id="place-order">Place Order 🛎</button>
-                    <button type="submit" class="btn btn-warning" id="order-more">Order More</button>
                 </div>
                 <h2>Your Cart</h2>
             </div>
             <div class="col-md-1"></div>
         </div>
+        <div class="row" id="info">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 info-container">
+                <form id="info-form" class="form-group">
+                    <input type="text" class="form-control validate" id="name" placeholder="Order Name" required>
+                    <input type="text" class="form-control validate" id="street" placeholder="Street Name" required>
+                    <input type="text" class="form-control validate" id="apartment" placeholder="Apartment, suite #">
+                    <input type="text" class="form-control validate" id="city" placeholder="City" required>
+                    <input type="text" class="form-control validate" id="state" placeholder="State" required>
+                    <input type="text" class="form-control validate" id="phone" placeholder="Phone Number" required>
+                    <button class="btn btn-info" id="submit-info">Order My Pizza</button>
+                </form>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="modal" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Thank you for your order!</h4>
+                        </div>
+                        <div class="modal-body">
+                           <p>We received your order. See you soon!</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-info close">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </div>
 </body>
 </html>

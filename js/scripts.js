@@ -51,7 +51,7 @@ const createOrder = () => {
     });
     const newOrder = new Order(size, proteins, veggies, others);
     return newOrder;
-}
+};
 
 // Show cart
 const showCart = (thisOrder) => {
@@ -62,22 +62,33 @@ const showCart = (thisOrder) => {
     $("#list").append(`<li>Others: <span id="others-topping">${thisOrder.others}</span></li>`);
     $("#list").append(`<li>$<span id="show">${thisOrder.pizzaPrice()}</span></li>`);
     $("#cart").show();
-}
+};
 
 // clear form
-const clearForm = () => {
+const clearOrderForm = () => {
     $("select#size").prop('selectedIndex', 0);
     $("input:checked").prop('checked', false);
-}
+};
 
 $(document).ready(function(){
     $("form").submit(function(event){
         event.preventDefault();
         const thisOrder = createOrder();
+        clearOrderForm();
         showCart(thisOrder);
-        $("button#order-more").click(function(event){
+        $("button#place-order").click(function(event){
             event.preventDefault();
-            clearForm();
+            $("#info").show();
+        });
+        $("button#submit-info").click(function(event){
+            event.preventDefault();
+            $("#info").hide();
+            $("#cart").remove();
+            $("#cart").hide();
+            $(".modal").modal();
+            $(".close").click(function(){
+                $(".modal").modal('hide');
+            });
         });
     });
 });
